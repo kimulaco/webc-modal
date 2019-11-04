@@ -1,4 +1,5 @@
-import { Component, h, State, Method } from '@stencil/core'
+import { Component, h, Element, Prop, State, Method } from '@stencil/core'
+import flameAnimate from 'flame-animate'
 
 interface ClassNames {
   [key: string]: string
@@ -17,32 +18,31 @@ const CLASS_NAMES: ClassNames = {
 })
 
 export class WebcModal {
-  @State() isShow: boolean = false
-  @State() isShowEnter: boolean = false
-  @State() isShowLeave: boolean = false
+  @Element() el: HTMLElement;
 
-  @Method() show(): Promise<void> {
-    this.isShowEnter = true
+  @Prop() duration: number = 500
+
+  @State() isShow: boolean = false
+
+  @Method() async show(): Promise<void> {
+    this.el.style.opacity = '0'
     this.isShow = true
-    return Promise.resolve()
+    await flameAnimate.start(this.duration, (progress: number) => {
+      this.el.style.opacity = String(progress)
+    })
+    return
   }
 
-  @Method() hide(): Promise<void> {
-    this.isShowLeave = true
+  @Method() async hide(): Promise<void> {
+    await flameAnimate.start(this.duration, (progress: number) => {
+      this.el.style.opacity = String(1 - progress)
+    })
     this.isShow = false
-    return Promise.resolve()
+    return
   }
 
   render() {
     let rootClassName = 'webc-modal'
-
-    if (this.isShowEnter) {
-      rootClassName += ` ${CLASS_NAMES.isShowEnter}`
-    }
-
-    if (this.isShowLeave) {
-      rootClassName += ` ${CLASS_NAMES.isShowLeave}`
-    }
 
     if (this.isShow) {
       rootClassName += ` ${CLASS_NAMES.show}`

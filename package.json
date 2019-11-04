@@ -22,6 +22,9 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
+  "dependencies": {
+    "flame-animate": "https://github.com/kimulaco/flame-animate.git"
+  },
   "devDependencies": {
     "@stencil/core": "^1.7.5",
     "@stencil/postcss": "^1.0.1",

@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface WebcModal {
+    'duration': number;
     'hide': () => Promise<void>;
     'show': () => Promise<void>;
   }
@@ -30,7 +31,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface WebcModal {}
+  interface WebcModal {
+    'duration'?: number;
+  }
 
   interface IntrinsicElements {
     'webc-modal': WebcModal;
