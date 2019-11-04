@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property   | Attribute  | Description | Type     | Default |
+| ---------- | ---------- | ----------- | -------- | ------- |
+| `duration` | `duration` |             | `number` | `500`   |
+
+
 ## Methods
 
 ### `hide() => Promise<void>`
