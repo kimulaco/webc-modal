@@ -42,14 +42,14 @@ export class WebcModal {
   }
 
   render() {
-    let rootClassName = 'webc-modal'
+    let rootStateClassAttr:string = ''
 
     if (this.isShow) {
-      rootClassName += ` ${CLASS_NAMES.show}`
+      rootStateClassAttr += ` ${CLASS_NAMES.show}`
     }
 
     return <div
-      class={rootClassName}
+      class={`webc-modal${rootStateClassAttr}`}
       onClick={this.hide.bind(this)}
     >
       <div class="webc-modal_inner">
@@ -62,9 +62,7 @@ export class WebcModal {
         <button
           class="webc-modal_close"
           type="button"
-          onClick={() => {
-            this.hide.bind(this)
-          }}
+          onClick={() => {this.hide.bind(this)}}
         >Close</button>
       </div>
     </div>
