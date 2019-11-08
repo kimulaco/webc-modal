@@ -18,6 +18,9 @@
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
+    "lint": "npm-run-all -p lint:*",
+    "lint:script": "eslint --ext .ts,.tsx --ignore-path .eslintignore .",
+    "lint:style": "stylelint src/**/*.css --config .stylelintrc.js",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",

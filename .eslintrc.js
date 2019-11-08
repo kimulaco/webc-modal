@@ -30,7 +30,13 @@ module.exports = {
         rules: {
           'no-undef': 0,
           '@typescript-eslint/no-inferrable-types': 0,
-          '@typescript-eslint/member-delimiter-style': 0
+          '@typescript-eslint/member-delimiter-style': 0,
+          '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+              'varsIgnorePattern': '^h$'
+            }
+          ]
         }
     }
   ]

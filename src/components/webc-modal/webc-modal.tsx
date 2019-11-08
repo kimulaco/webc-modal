@@ -41,8 +41,9 @@ export class WebcModal {
     return
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
-    let rootStateClassAttr:string = ''
+    let rootStateClassAttr: string = ''
 
     if (this.isShow) {
       rootStateClassAttr += ` ${CLASS_NAMES.show}`
@@ -55,14 +56,14 @@ export class WebcModal {
       <div class="webc-modal_inner">
         <div
           class="webc-modal_content"
-          onClick={(event) => {event.stopPropagation()}}
+          onClick={(event): void => {event.stopPropagation()}}
         >
           <slot />
         </div>
         <button
           class="webc-modal_close"
           type="button"
-          onClick={() => {this.hide.bind(this)}}
+          onClick={(): void => {this.hide.bind(this)}}
         >Close</button>
       </div>
     </div>
