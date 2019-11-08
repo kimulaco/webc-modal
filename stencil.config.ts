@@ -14,6 +14,7 @@ export const config: Config = {
     },
     {
       type: 'www',
+      baseUrl: '/webc-modal',
       serviceWorker: null
     }
   ],

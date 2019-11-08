@@ -20,7 +20,8 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "deploy:gh-pages": "gh-pages -d www -m 'Update pages [skip ci]' -t"
   },
   "dependencies": {
     "flame-animate": "https://github.com/kimulaco/flame-animate.git"
@@ -35,6 +36,7 @@
     "@typescript-eslint/parser": "^2.6.1",
     "autoprefixer": "^9.7.1",
     "eslint": "^6.6.0",
+    "gh-pages": "^2.1.1",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
     "npm-run-all": "^4.1.5",
